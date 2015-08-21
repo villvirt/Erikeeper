@@ -13,7 +13,6 @@ public class Jump : MonoBehaviour {
 
 	void Update() {
 		if (Input.GetMouseButtonDown (0)) {
-
 			JumpAction ();
 			//TryJump ();
 		}

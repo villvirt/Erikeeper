@@ -2,13 +2,15 @@
 using System.Collections;
 public class GenerateObstacle : MonoBehaviour {
 	
-	//Spawn this object
-	public GameObject obstacle;
-	
-	public float maxTime = 5;
+	//Spawn these object
+	public GameObject obstacle_top;
+	public GameObject obstacle_bot;
+	public GameObject obstacle_mid;
+
+	public float maxTime = 3;
 	public float minTime = 2;
-	public float maxHeight = 5;
-	public float minHeight = -5;
+	public float maxHeight = 0.5f;
+	public float minHeight = -0.5f;
 	
 	//current time
 	private float time;
@@ -38,10 +40,20 @@ public class GenerateObstacle : MonoBehaviour {
 	
 	//Spawns the obstacle resets the time
 	void SpawnObstacle(){
+		int id= Random.Range(1,4);
+		Debug.Log (id);
 		SetRandomHeight();
-		Vector3 pos = new Vector3(10, spawnHeight, 0);
+		Vector3 pos = new Vector3(12, spawnHeight, 0);
 		time = 0;
-		Instantiate (obstacle, pos, Quaternion.identity);
+		if(id==1){
+			Instantiate (obstacle_top, new Vector3(12, -1, 0), Quaternion.identity);
+		}
+		if(id==2){
+			Instantiate (obstacle_bot, new Vector3(12, 2, 0), Quaternion.identity);
+		}
+		if(id==3){
+			Instantiate (obstacle_mid, pos, Quaternion.identity);
+		}
 	}
 	
 
@@ -52,5 +64,5 @@ public class GenerateObstacle : MonoBehaviour {
 	void SetRandomHeight(){
 		spawnHeight = Random.Range(minHeight, maxHeight);
 	}
-	
+
 }

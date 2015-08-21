@@ -8,8 +8,10 @@ public class Player : MonoBehaviour
 	public float bouncePower=15;
 	private GameObject[] obstacles;
 	private GameObject[] flowers;
+	private bool started=false;
 	// Use this for initialization
 	void Start(){
+		Time.timeScale=0.00001f;
 		anim = transform.root.gameObject.GetComponent<Animator> ();
 		
 	}
@@ -33,7 +35,6 @@ public class Player : MonoBehaviour
 			this.gameObject.GetComponent<BoxCollider2D>().enabled=false;
 			this.gameObject.GetComponent<Jump>().enabled = false;
 			this.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
-			GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GenerateFlower>().enabled=false;
 			GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GenerateObstacle>().enabled=false;
 			obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
 			flowers =GameObject.FindGameObjectsWithTag("Flower");
@@ -56,6 +57,12 @@ public class Player : MonoBehaviour
 	}
 	void Update ()
 	{
+
+		if(!started && Input.GetMouseButtonDown (0)){
+			started=true;
+			firstClick();
+
+		}
 		if(bonusCounter==0){
 			this.gameObject.transform.Find ("BonusEffect").gameObject.SetActive (false);
 			
@@ -77,6 +84,17 @@ void Die()
 
 	void OnGUI(){
 		GUI.Box(new Rect(10,10,100,90), pointCounter.ToString());
+		if(!started){
+		GUI.Label (new Rect (Screen.width/2,Screen.height/2,90,90), "Click to start");
+		}
+
 
 	}
+
+	private void firstClick(){
+		Time.timeScale=1f;
+		
+	}
+
 }
+
