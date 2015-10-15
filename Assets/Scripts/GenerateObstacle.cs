@@ -3,8 +3,6 @@ using System.Collections;
 public class GenerateObstacle : MonoBehaviour {
 	
 	//Spawn these object
-	public GameObject obstacle_top;
-	public GameObject obstacle_bot;
 	public GameObject obstacle_mid;
 
 	public float maxTime = 3;
@@ -40,20 +38,10 @@ public class GenerateObstacle : MonoBehaviour {
 	
 	//Spawns the obstacle resets the time
 	void SpawnObstacle(){
-		int id= Random.Range(1,4);
-		Debug.Log (id);
 		SetRandomHeight();
 		Vector3 pos = new Vector3(12, spawnHeight, 0);
 		time = 0;
-		if(id==1){
-			Instantiate (obstacle_top, new Vector3(12, -1, 0), Quaternion.identity);
-		}
-		if(id==2){
-			Instantiate (obstacle_bot, new Vector3(12, 2, 0), Quaternion.identity);
-		}
-		if(id==3){
-			Instantiate (obstacle_mid, pos, Quaternion.identity);
-		}
+		Instantiate (obstacle_mid, pos, Quaternion.identity);
 	}
 	
 

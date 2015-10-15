@@ -12,7 +12,7 @@ public class MoveObject : MonoBehaviour
 	}
 	void Update(){
 		Vector2 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-		if (screenPosition.x < -1)
+		if (screenPosition.x < -100f)
 		{
 			Destroy (this.transform.parent.gameObject);
 		}

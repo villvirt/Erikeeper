@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -6,13 +7,17 @@ public class Player : MonoBehaviour
 	private int pointCounter=0;
 	private int bonusCounter=0;
 	public float bouncePower=15;
+	public GameObject deathCanvas;
 	private GameObject[] obstacles;
 	private GameObject[] flowers;
 	private bool started=false;
+	private bool death=false;
+	private bool drawScreen=true;
 	// Use this for initialization
 	void Start(){
 		Time.timeScale=0.00001f;
 		anim = transform.root.gameObject.GetComponent<Animator> ();
+
 		
 	}
 	void OnTriggerEnter2D(Collider2D other)
@@ -26,8 +31,6 @@ public class Player : MonoBehaviour
 			else{
 			pointCounter++;
 			}
-			//Debug.Log (pointCounter);
-			Debug.Log(bonusCounter);
 
 		}
 		if (other.tag.Equals ("Obstacle")) {
@@ -63,6 +66,11 @@ public class Player : MonoBehaviour
 			firstClick();
 
 		}
+
+		if(death && Input.GetMouseButtonDown(0)){
+			Die();
+		}
+
 		if(bonusCounter==0){
 			this.gameObject.transform.Find ("BonusEffect").gameObject.SetActive (false);
 			
@@ -70,30 +78,43 @@ public class Player : MonoBehaviour
 		
 		// Die by being off screen
 		Vector2 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-		if (screenPosition.y < 0)
+		if (screenPosition.y < -100f)
 		{
-			Die();
+			death=true;
+			Time.timeScale=0.00001f;
+			if(drawScreen){
+			deathScreen();
+			}
 		}
 	}
 
 void Die()
 {
 	Application.LoadLevel(Application.loadedLevel);
-		Debug.Log("kuolema");
 }
 
 	void OnGUI(){
-		GUI.Box(new Rect(10,10,100,90), pointCounter.ToString());
-		if(!started){
-		GUI.Label (new Rect (Screen.width/2,Screen.height/2,90,90), "Click to start");
+		if (!death) {
+			GUI.Box (new Rect (10, 10, 100, 90), pointCounter.ToString ());
 		}
-
+		if(!started){
+		GUI.Label (new Rect (Screen.width/2-45,Screen.height/2,90,90), "Click to start");
+		}		
 
 	}
 
 	private void firstClick(){
 		Time.timeScale=1f;
 		
+	}
+
+	private void deathScreen(){
+		drawScreen = false;
+		Vector3 pos = new Vector3(0, 0, 0);
+		deathCanvas.transform.Find ("Text").gameObject.GetComponent<UnityEngine.UI.Text>().text="Score: "+pointCounter.ToString();
+		Instantiate (deathCanvas, pos, Quaternion.identity);
+	
+
 	}
 
 }
