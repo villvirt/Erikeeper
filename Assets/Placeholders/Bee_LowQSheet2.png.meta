@@ -1,0 +1,275 @@
+fileFormatVersion: 2
+guid: 5f9b045490cd73c4698932a71599c0fb
+timeCreated: 1446918703
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Bee_LowQSheet2_0
+    21300002: Bee_LowQSheet2_1
+    21300004: Bee_LowQSheet2_2
+    21300006: Bee_LowQSheet2_3
+    21300008: Bee_LowQSheet2_4
+    21300010: Bee_LowQSheet2_5
+    21300012: Bee_LowQSheet2_6
+    21300014: Bee_LowQSheet2_7
+    21300016: Bee_LowQSheet2_8
+    21300018: Bee_LowQSheet2_9
+    21300020: Bee_LowQSheet2_10
+    21300022: Bee_LowQSheet2_11
+    21300024: Bee_LowQSheet2_12
+    21300026: Bee_LowQSheet2_13
+    21300028: Bee_LowQSheet2_14
+    21300030: Bee_LowQSheet2_15
+    21300032: Bee_LowQSheet2_16
+    21300034: Bee_LowQSheet2_17
+    21300036: Bee_LowQSheet2_18
+    21300038: Bee_LowQSheet2_19
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Bee_LowQSheet2_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 2132
+        width: 428
+        height: 400
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_1
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 2144
+        width: 430
+        height: 381
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_2
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 2133
+        width: 429
+        height: 407
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_3
+      rect:
+        serializedVersion: 2
+        x: 1515
+        y: 2130
+        width: 427
+        height: 413
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_4
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 1631
+        width: 435
+        height: 416
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_5
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 1631
+        width: 437
+        height: 413
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_6
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 1631
+        width: 440
+        height: 416
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_7
+      rect:
+        serializedVersion: 2
+        x: 1511
+        y: 1631
+        width: 440
+        height: 412
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_8
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 1131
+        width: 443
+        height: 423
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_9
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 1134
+        width: 447
+        height: 416
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_10
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 1135
+        width: 441
+        height: 416
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_11
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 1134
+        width: 445
+        height: 413
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_12
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 636
+        width: 445
+        height: 422
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_13
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 636
+        width: 447
+        height: 423
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_14
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 636
+        width: 444
+        height: 420
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_15
+      rect:
+        serializedVersion: 2
+        x: 1513
+        y: 637
+        width: 437
+        height: 418
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_16
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 140
+        width: 441
+        height: 418
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_17
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 142
+        width: 430
+        height: 411
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_18
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 144
+        width: 429
+        height: 410
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bee_LowQSheet2_19
+      rect:
+        serializedVersion: 2
+        x: 1517
+        y: 145
+        width: 427
+        height: 403
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

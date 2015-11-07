@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 	void Start(){
 		Time.timeScale=0.00001f;
 		anim = transform.root.gameObject.GetComponent<Animator> ();
+		death = false;
 
 		
 	}

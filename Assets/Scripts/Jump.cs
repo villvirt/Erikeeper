@@ -34,8 +34,11 @@ public class Jump : MonoBehaviour {
 	void JumpAction() {
 		this.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		anim.Play("Flap");
+		anim.Play("FlapAgain");
 		GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
 	}
+
+
 
 
 
