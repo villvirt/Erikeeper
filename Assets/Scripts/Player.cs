@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
 		}
 		if (other.tag.Equals ("Obstacle")) {
 			anim.Play("Death");
-			this.gameObject.GetComponent<BoxCollider2D>().enabled=false;
+			this.gameObject.GetComponent<CircleCollider2D>().enabled=false;
 			this.gameObject.GetComponent<Jump>().enabled = false;
 			this.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 			GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GenerateObstacle>().enabled=false;
