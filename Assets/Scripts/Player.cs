@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
 
 		if(bonusCounter==0){
 			this.gameObject.transform.Find ("BonusEffect").gameObject.SetActive (false);
-			
+		
 		}
 		
 		// Die by being off screen
@@ -113,6 +113,7 @@ void Die()
 		drawScreen = false;
 		Vector3 pos = new Vector3(0, 0, 0);
 		deathCanvas.transform.Find ("Text").gameObject.GetComponent<UnityEngine.UI.Text>().text="Score: "+pointCounter.ToString();
+		deathCanvas.transform.Find ("TextHighlight").gameObject.GetComponent<UnityEngine.UI.Text>().text="Score: "+pointCounter.ToString();
 		Instantiate (deathCanvas, pos, Quaternion.identity);
 	
 
