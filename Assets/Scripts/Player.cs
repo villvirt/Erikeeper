@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
 
 void Die()
 {
-	Application.LoadLevel(Application.loadedLevel);
+	//Application.LoadLevel(Application.loadedLevel);
 }
 
 	void OnGUI(){
