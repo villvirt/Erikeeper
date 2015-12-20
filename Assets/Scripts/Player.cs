@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
 
 			pointCounter++;
 			scoreText.text=pointCounter.ToString();
-			Debug.Log(scoreText.text);
 
 		}
 		if (other.tag.Equals ("Obstacle")) {
@@ -93,6 +92,9 @@ public class Player : MonoBehaviour
 		Instantiate (deathCanvas, pos, Quaternion.identity);
 		scoreText.text="";
 
+	}
+	public string getScore(){
+		return pointCounter.ToString();
 	}
 
 }
