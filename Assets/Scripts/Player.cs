@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 	private Animator anim;
+	private Animator textAnim;
 	private int pointCounter=0;
 	private int bonusCounter=0;
 	public float bouncePower=15;
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
 	void Start(){
 		Time.timeScale=0.00001f;
 		anim = transform.root.gameObject.GetComponent<Animator> ();
+		textAnim = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<Animator>();
 		death = false;
 		
 	}
@@ -27,8 +29,8 @@ public class Player : MonoBehaviour
 		if (other.tag.Equals ("Gate")) {
 
 			pointCounter++;
+			textAnim.Play("ScoreAnimation");
 			scoreText.text=pointCounter.ToString();
-			Debug.Log(scoreText.text);
 
 		}
 		if (other.tag.Equals ("Obstacle")) {
@@ -93,6 +95,9 @@ public class Player : MonoBehaviour
 		Instantiate (deathCanvas, pos, Quaternion.identity);
 		scoreText.text="";
 
+	}
+	public string getScore(){
+		return pointCounter.ToString();
 	}
 
 }
