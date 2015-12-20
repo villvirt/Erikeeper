@@ -7,7 +7,9 @@ public class Player : MonoBehaviour
 	private int pointCounter=0;
 	private int bonusCounter=0;
 	public float bouncePower=15;
+	public Font customFont;
 	public GameObject deathCanvas;
+	public Text scoreText;
 	private GameObject[] obstacles;
 	private GameObject[] flowers;
 	private bool started=false;
@@ -18,20 +20,15 @@ public class Player : MonoBehaviour
 		Time.timeScale=0.00001f;
 		anim = transform.root.gameObject.GetComponent<Animator> ();
 		death = false;
-
 		
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag.Equals ("Gate")) {
-			if(bonusCounter>0){
-				pointCounter=pointCounter+2;
-				bonusCounter--;
-			}
 
-			else{
 			pointCounter++;
-			}
+			scoreText.text=pointCounter.ToString();
+			Debug.Log(scoreText.text);
 
 		}
 		if (other.tag.Equals ("Obstacle")) {
@@ -50,13 +47,6 @@ public class Player : MonoBehaviour
 			}
 
 		}
-		if (other.tag.Equals ("Flower")) {
-			this.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
-			anim.Play ("FlowerBounce");
-			this.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, bouncePower), ForceMode2D.Impulse);
-			this.gameObject.transform.Find ("BonusEffect").gameObject.SetActive (true);
-			this.bonusCounter = 3;
-		}
 
 	}
 	void Update ()
@@ -67,16 +57,7 @@ public class Player : MonoBehaviour
 			firstClick();
 
 		}
-
-		if(death && Input.GetMouseButtonDown(0)){
-			Die();
-		}
-
-		if(bonusCounter==0){
-			this.gameObject.transform.Find ("BonusEffect").gameObject.SetActive (false);
-		
-		}
-		
+			
 		// Die by being off screen
 		Vector2 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
 		if (screenPosition.y < -100f)
@@ -89,17 +70,13 @@ public class Player : MonoBehaviour
 		}
 	}
 
-void Die()
-{
-	//Application.LoadLevel(Application.loadedLevel);
-}
-
 	void OnGUI(){
-		if (!death) {
-			GUI.Box (new Rect (10, 10, 100, 90), pointCounter.ToString ());
-		}
+		GUIStyle myStyle = new GUIStyle();
+		myStyle.font = customFont;
+		myStyle.fontSize=36;
+		myStyle.normal.textColor=Color.yellow;
 		if(!started){
-		GUI.Label (new Rect (Screen.width/2-45,Screen.height/2,90,90), "Click to start");
+			GUI.Label (new Rect (Screen.width/2-45,Screen.height/2,90,90), "Click to start", myStyle);
 		}		
 
 	}
@@ -114,7 +91,7 @@ void Die()
 		Vector3 pos = new Vector3(0, 0, 0);
 		deathCanvas.transform.Find ("Text").gameObject.GetComponent<UnityEngine.UI.Text>().text="Score: "+pointCounter.ToString();
 		Instantiate (deathCanvas, pos, Quaternion.identity);
-	
+		scoreText.text="";
 
 	}
 
