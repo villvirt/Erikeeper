@@ -3,12 +3,13 @@ using System.Collections;
 
 public class Jump : MonoBehaviour {
 	private Animator anim;
+	private AudioSource audio;
 	public float jumpRate = 0.1f;
 	bool canJump = true;
 	public float jumpPower=5;
 	void Start(){
 		anim = transform.root.gameObject.GetComponent<Animator> ();
-		
+		audio = transform.root.gameObject.GetComponent <AudioSource> ();
 	}
 
 	void Update() {
@@ -35,6 +36,7 @@ public class Jump : MonoBehaviour {
 		this.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		anim.Play("Flap");
 		anim.Play("FlapAgain");
+		audio.Play ();
 		GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
 	}
 
