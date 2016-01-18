@@ -95,8 +95,8 @@ public class Player : MonoBehaviour
 		scoreText.text="";
 
 	}
-	public string getScore(){
-		return pointCounter.ToString();
+	public double getScore(){
+		return pointCounter;
 	}
 
 	private void stopBG(){
