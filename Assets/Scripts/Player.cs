@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using com.shephertz.app42.paas.sdk.csharp;    
+using com.shephertz.app42.paas.sdk.csharp.game;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -17,6 +20,7 @@ public class Player : MonoBehaviour
 	private bool started=false;
 	private bool death=false;
 	private bool drawScreen=true;
+	private String gameName = "Erikeeper";
 	// Use this for initialization
 	void Start(){
 		Time.timeScale=0.00001f;
@@ -93,6 +97,7 @@ public class Player : MonoBehaviour
 		}
 		Instantiate (deathCanvas, pos, Quaternion.identity);
 		scoreText.text="";
+		postScore();
 
 	}
 	public double getScore(){
@@ -108,6 +113,41 @@ public class Player : MonoBehaviour
 			}
 		}
 	}
+
+
+
+	private void postScore(){
+		Debug.Log(FBContainer.playerName);  
+		double gameScore = getScore();
+		if(FBContainer.highScore<gameScore && gameScore >1){
+			FBContainer.scoreBoardService.SaveUserScore(gameName,FBContainer.playerName, gameScore, new PostScoreCallBack()); 
+			FBContainer.highScore=gameScore;
+		}
+		else{
+			Debug.Log("Score was lower than highscore");
+		}
+	}
+
+
+	public class PostScoreCallBack : App42CallBack  
+	{  
+		public void OnSuccess(object response)  
+		{  
+			Game game = (Game) response;       
+			App42Log.Console("gameName is " + game.GetName());   
+			for(int i = 0;i<game.GetScoreList().Count;i++)  
+			{  
+				App42Log.Console("userName is : " + game.GetScoreList()[i].GetUserName());  
+				App42Log.Console("score is : " + game.GetScoreList()[i].GetValue());  
+				App42Log.Console("scoreId is : " + game.GetScoreList()[i].GetScoreId());  
+			}  
+		}  
+
+		public void OnException(Exception e)  
+		{  
+			App42Log.Console("Exception : " + e);  
+		}  
+	}  
 
 }
 
