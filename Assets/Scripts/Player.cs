@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using com.shephertz.app42.paas.sdk.csharp;    
 using com.shephertz.app42.paas.sdk.csharp.game;
 using System;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -95,9 +96,9 @@ public class Player : MonoBehaviour
 			deathCanvas.transform.GetChild (4).gameObject.SetActive(false);
 			deathCanvas.transform.GetChild (5).gameObject.SetActive(true);
 		}
-		Instantiate (deathCanvas, pos, Quaternion.identity);
+		deathCanvas.SetActive(true);
 		scoreText.text="";
-		postScore();
+		StartCoroutine(postScore());
 
 	}
 	public double getScore(){
@@ -116,15 +117,23 @@ public class Player : MonoBehaviour
 
 
 
-	private void postScore(){
+	private IEnumerator postScore(){
 		Debug.Log(FBContainer.playerName);  
 		double gameScore = getScore();
-		if(FBContainer.highScore<gameScore && gameScore >1){
+		if(gameScore>1){
+			while(FBContainer.highScore==-2){
+				yield return null;
+			}
+		if(FBContainer.highScore<gameScore){
 			FBContainer.scoreBoardService.SaveUserScore(gameName,FBContainer.playerName, gameScore, new PostScoreCallBack()); 
 			FBContainer.highScore=gameScore;
+			}
+			else{
+				Debug.Log("Score was lower than highscore");
+			}
 		}
 		else{
-			Debug.Log("Score was lower than highscore");
+			Debug.Log("Score was lower 2");
 		}
 	}
 
